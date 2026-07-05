@@ -77,16 +77,13 @@ button:disabled {
 }
 
 .brand-mark {
-  display: grid;
   width: 42px;
   height: 42px;
   flex: 0 0 auto;
-  place-items: center;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
-  color: var(--primary-dark);
-  font-weight: 800;
   background: var(--surface);
+  object-fit: cover;
 }
 
 .brand h1,

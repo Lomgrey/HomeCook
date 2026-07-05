@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">HomeCook basket and recipe card icon</title>
+  <desc id="desc">A green grocery basket with a cream recipe card and tomato accent.</desc>
+  <rect width="1024" height="1024" rx="220" fill="#FAF7EF"/>
+  <path d="M316 414c18-118 94-198 196-198s178 80 196 198" fill="none" stroke="#24352B" stroke-width="64" stroke-linecap="round"/>
+  <path d="M208 374h608l-62 366c-8 49-50 84-100 84H370c-50 0-92-35-100-84L208 374Z" fill="#2F7D4F"/>
+  <rect x="232" y="348" width="560" height="82" rx="41" fill="#24352B"/>
+  <circle cx="670" cy="472" r="70" fill="#D84A32"/>
+  <path d="M666 404c30-31 62-34 94-8-39 3-66 18-84 43Z" fill="#3E8F5B"/>
+  <rect x="322" y="432" width="380" height="252" rx="42" fill="#F6E8C8"/>
+  <path d="m384 508 28 28 56-64" fill="none" stroke="#D84A32" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M512 512h126M386 590h252M386 650h188" fill="none" stroke="#24352B" stroke-width="28" stroke-linecap="round"/>
+  <path d="M294 728h436" fill="none" stroke="#F6E8C8" stroke-width="28" stroke-linecap="round" opacity=".9"/>
+</svg>
