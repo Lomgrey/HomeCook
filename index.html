@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeCook</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">HC</span>
+          <div>
+            <h1>HomeCook</h1>
+            <p>Clean weekly grocery planning</p>
+          </div>
+        </div>
+
+        <nav class="tabs" aria-label="Primary">
+          <button
+            class="tab-button is-active"
+            type="button"
+            id="dishes-tab"
+            data-tab="dishes"
+            aria-selected="true"
+            aria-controls="dishes-panel"
+          >
+            Dishes
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            id="basket-tab"
+            data-tab="basket"
+            aria-selected="false"
+            aria-controls="basket-panel"
+          >
+            Basket
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <div class="portion-pill" aria-live="polite">
+            <strong id="total-portions">0</strong>
+            <span>portions</span>
+          </div>
+          <button class="ghost-button" type="button" id="clear-selection-button">Clear selection</button>
+          <button class="ghost-button" type="button" id="import-button">Import</button>
+          <button class="primary-button" type="button" id="export-button">Export</button>
+          <input id="import-file" type="file" accept="application/json,.json" hidden />
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="tab-panel is-active" id="dishes-panel" aria-labelledby="dishes-tab">
+          <div class="section-heading">
+            <div>
+              <h2>Dishes</h2>
+              <p>Create recipes, then select portions for the next delivery.</p>
+            </div>
+            <button class="primary-button add-dish-button" type="button" id="add-dish-button">
+              <span aria-hidden="true">+</span>
+              Add dish
+            </button>
+          </div>
+
+          <div class="dishes-grid" id="dishes-grid"></div>
+          <div class="empty-state" id="dishes-empty">
+            <h3>No dishes yet</h3>
+            <p>Add your first dish to start building grocery baskets.</p>
+            <button class="primary-button" type="button" id="empty-add-dish-button">Add dish</button>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="basket-panel" aria-labelledby="basket-tab">
+          <div class="section-heading">
+            <div>
+              <h2>Basket</h2>
+              <p>Total required ingredients from selected dishes.</p>
+            </div>
+            <button class="ghost-button" type="button" id="basket-clear-selection-button">Clear selection</button>
+          </div>
+
+          <div class="basket-list" id="basket-list"></div>
+          <div class="empty-state" id="basket-empty">
+            <h3>Your basket is empty</h3>
+            <p>Select portions from the dishes tab to calculate groceries.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="dish-dialog" id="dish-dialog">
+      <form class="dish-form" id="dish-form">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow" id="dialog-mode-label">New dish</p>
+            <h2 id="dialog-title">Add dish</h2>
+          </div>
+          <button class="icon-button" type="button" id="dialog-close-button" aria-label="Close dialog">
+            x
+          </button>
+        </div>
+
+        <input type="hidden" id="dish-id" />
+
+        <label class="field">
+          <span>Name</span>
+          <input id="dish-name" type="text" autocomplete="off" required maxlength="80" />
+        </label>
+
+        <label class="field">
+          <span>Description</span>
+          <textarea id="dish-description" rows="3" maxlength="220"></textarea>
+        </label>
+
+        <label class="field small-field">
+          <span>Recipe portions</span>
+          <input id="dish-base-portions" type="number" min="0.1" step="any" required />
+        </label>
+
+        <div class="ingredients-editor">
+          <div class="ingredients-editor-header">
+            <h3>Ingredients</h3>
+            <button class="ghost-button" type="button" id="add-ingredient-row-button">
+              <span aria-hidden="true">+</span>
+              Ingredient
+            </button>
+          </div>
+
+          <div class="ingredient-rows" id="ingredient-rows"></div>
+          <datalist id="ingredient-options"></datalist>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert"></p>
+
+        <div class="dialog-actions">
+          <button class="ghost-button danger-button dialog-delete-button" type="button" id="delete-dish-button" hidden>
+            Delete
+          </button>
+          <div class="dialog-action-group">
+            <button class="ghost-button" type="button" id="cancel-dish-button">Cancel</button>
+            <button class="primary-button" type="submit">Save dish</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
