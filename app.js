@@ -259,7 +259,7 @@
       <input class="ingredient-name" type="text" list="ingredient-options" placeholder="Ingredient" value="${escapeHtml(
         ingredient ? ingredient.name : ""
       )}" required maxlength="80" />
-      <input class="ingredient-amount" type="number" min="0.0001" step="any" placeholder="Amount" value="${
+      <input class="ingredient-amount" type="number" min="0" step="1" placeholder="Amount" value="${
         item ? item.amount : ""
       }" required />
       <select class="ingredient-unit" required>
